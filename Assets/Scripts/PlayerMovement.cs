@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-
+      
 
         MyInput();
 
@@ -155,14 +155,22 @@ public class PlayerMovement : MonoBehaviour
 
             if (rb.linearVelocity.y > 0 && grounded && state != MovementState.air)
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+            Debug.Log("OnSlope");
         }
 
         if (grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            Debug.Log("Grounded");
+        }
 
 
         else if (!grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            Debug.Log("NotGrounded");
+        }
+        
 
 
     }
@@ -219,6 +227,24 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 GetSlopeMoveDirection()
     {
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+           if(collision.gameObject.CompareTag("WhatIsGround"))
+        {
+            grounded = true;
+        }
+            
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("WhatIsGround"))
+        {
+            grounded = false;
+        }
+
     }
 
 }

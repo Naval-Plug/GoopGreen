@@ -753,6 +753,7 @@ GameObject:
   - component: {fileID: 623200119}
   - component: {fileID: 623200123}
   - component: {fileID: 623200124}
+  - component: {fileID: 623200125}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -848,14 +849,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623200118}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 21.648, y: 7.37, z: -5.92375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 330585546}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!54 &623200123
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -895,8 +896,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e882c69aef6b27e44ae670c1b7f0a8a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  walkSpeed: 3
-  sprintSpeed: 5
+  walkSpeed: 5
+  sprintSpeed: 10
   groundDrag: 0
   jumpForce: 2
   jumpCooldown: 1
@@ -910,9 +911,30 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4096
-  maxSlopeAngle: 0
-  orientation: {fileID: 0}
+  maxSlopeAngle: 45
+  orientation: {fileID: 623200122}
   state: 0
+--- !u!135 &623200125
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623200118}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!43 &692522038
 Mesh:
   m_ObjectHideFlags: 0
@@ -1154,7 +1176,7 @@ GameObject:
   - component: {fileID: 943832679}
   - component: {fileID: 943832678}
   - component: {fileID: 943832677}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3081,7 +3103,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1344333492}
+  m_Mesh: {fileID: 692522038}
 --- !u!33 &1974343145
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -3396,7 +3418,7 @@ GameObject:
   - component: {fileID: 2019492773}
   m_Layer: 12
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: WhatIsGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

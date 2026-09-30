@@ -1,14 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("GoopGauge")]
+    public Image GoopGauge;
+
+    public float Goop, MaxGoop;
+
+    public float GoopDrain;
+
     [Header("Movement")]
     private float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
-
     public float groundDrag;
-
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
@@ -67,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-      
+
 
         MyInput();
 
@@ -78,6 +84,13 @@ public class PlayerMovement : MonoBehaviour
             rb.linearDamping = 0;//groundDrag;
         else
             rb.linearDamping = 0;
+
+        if (Input.GetKeyDown("f"))// cHANGE lATER
+        {
+            Goop -= GoopDrain;
+            if (Goop < 0) Goop = 0;
+            GoopGauge.fillAmount = Goop / MaxGoop;
+        }
     }
 
     private void FixedUpdate()
@@ -107,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
             rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+
         }
 
         if (Input.GetKeyUp(crouchKey))
@@ -246,5 +260,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
 
 }

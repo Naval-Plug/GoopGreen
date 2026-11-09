@@ -33,6 +33,7 @@
   <Project Path="Unity.VisualScripting.State.Editor.csproj" />
   <Project Path="Unity.Burst.CodeGen.csproj" />
   <Project Path="Unity.VisualScripting.Flow.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.PerformanceTesting.csproj" />
   <Project Path="Unity.InputSystem.ForUI.csproj" />
   <Project Path="Unity.TextMeshPro.csproj" />
@@ -43,6 +44,7 @@
   <Project Path="Unity.AI.Navigation.Updater.csproj" />
   <Project Path="UnityEditor.UI.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.2D.Editor.Overrides.csproj" />
+  <Project Path="Unity.2D.Sprite.Editor.csproj" />
   <Project Path="Unity.AI.Navigation.Editor.csproj" />
   <Project Path="Unity.Multiplayer.Center.Common.csproj" />
   <Project Path="Unity.ProBuilder.KdTree.csproj" />
@@ -67,7 +69,6 @@
   <Project Path="Unity.InternalAPIEngineBridge.004.csproj" />
   <Project Path="Unity.ProBuilder.Stl.csproj" />
   <Project Path="Unity.RenderPipelines.Core.Editor.Shared.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.VisualScripting.DocCodeExamples.csproj" />
   <Project Path="Unity.PlasticSCM.Editor.Entities.csproj" />
   <Project Path="Unity.Rendering.LightTransport.Editor.csproj" />
@@ -92,6 +93,7 @@
   <Project Path="Unity.RenderPipelines.Universal.Runtime.Player.csproj" />
   <Project Path="Unity.UnifiedRayTracing.Runtime.Player.csproj" />
   <Project Path="Unity.VisualScripting.Flow.Player.csproj" />
+  <Project Path="Assembly-CSharp.Player.csproj" />
   <Project Path="Unity.PerformanceTesting.Player.csproj" />
   <Project Path="Unity.InputSystem.ForUI.Player.csproj" />
   <Project Path="Unity.TextMeshPro.Player.csproj" />
@@ -105,7 +107,6 @@
   <Project Path="Unity.RenderPipelines.Core.Runtime.Shared.Player.csproj" />
   <Project Path="Unity.InternalAPIEngineBridge.004.Player.csproj" />
   <Project Path="Unity.ProBuilder.Stl.Player.csproj" />
-  <Project Path="Assembly-CSharp.Player.csproj" />
   <Project Path="Unity.VisualScripting.DocCodeExamples.Player.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.Config.Runtime.Player.csproj" />
   <Project Path="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.Player.csproj" />

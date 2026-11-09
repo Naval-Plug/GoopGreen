@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float sprintSpeed;
     public float groundDrag;
     public float jumpForce;
+    public float gJForce;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
     public KeyCode crouchKey = KeyCode.LeftControl;
+    public KeyCode gJKey = KeyCode.Q;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -79,6 +81,8 @@ public class PlayerMovement : MonoBehaviour
 
         StateHandler();
 
+        if (Goop < 0) Goop = 0;
+        GoopGauge.fillAmount = Goop / MaxGoop;
 
         if (grounded)
             rb.linearDamping = 0;//groundDrag;
@@ -88,14 +92,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown("f"))// cHANGE lATER
         {
             Goop -= GoopDrain;
-            if (Goop < 0) Goop = 0;
-            GoopGauge.fillAmount = Goop / MaxGoop;
+            
         }
     }
 
     private void FixedUpdate()
     {
-
         MovePlayer();
         SpeedControl();
     }
@@ -128,6 +130,12 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
 
+        if (grounded && Input.GetKeyDown(gJKey) && Goop >= 15) // Goop Jump code
+        {
+            Goop -= 15;
+            rb.AddForce(Camera.main.transform.forward * gJForce, ForceMode.Impulse);
+        }
+
     }
 
     private void StateHandler()
@@ -137,7 +145,10 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.crouching;
             moveSpeed = crouchSpeed;
+            Goop += 5;
         }
+
+
 
         if (grounded && Input.GetKey(sprintKey))
         {

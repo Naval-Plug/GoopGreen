@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 24fef70b853bcc94f884005d4c97c030
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Slime Vibes DEMO
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d26ddf341a1ab4e48afb48d848054c93, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         if (grounded && Input.GetKeyDown(gJKey) && Goop >= 15) // Goop Jump code
         {
             Goop -= 15;
-            rb.AddForce(Camera.main.transform.forward * gJForce, ForceMode.Impulse);
+            rb.AddForce(Camera.main.transform.up * gJForce, ForceMode.Impulse);
         }
 
     }
